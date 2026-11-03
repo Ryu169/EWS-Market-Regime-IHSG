@@ -1,0 +1,169 @@
+/* The same palette and typography used by Compoundly, shared across both apps. */
+@import '../../compoundly/src/editorial-tokens.css';
+
+:root{font-family:Arial,Helvetica,sans-serif;color:var(--color-editorial-text);background:var(--color-editorial-bg)}
+body{background:var(--color-editorial-bg)}
+.app-shell,.app-shell.proposal-shell{background:var(--color-editorial-bg);color:var(--color-editorial-text);font-family:Arial,Helvetica,sans-serif;--ink:var(--color-editorial-text);--paper:var(--color-editorial-bg);--line:var(--color-editorial-border);--wash:var(--color-editorial-secondary);--accent:var(--color-editorial-accent)}
+.app-shell :is(button,a,input,select):focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.app-shell .sidebar{width:210px;background:var(--paper);border-right:1px solid var(--line);padding:28px 18px 0}
+.app-shell .workspace{margin-left:210px;min-width:0}
+.app-shell .brand{padding:0 8px 30px;gap:8px;font-family:var(--font-serif);font-style:italic;font-size:26px;letter-spacing:-1px;font-weight:400;color:var(--ink)}
+.app-shell .brand b{color:var(--ink);font-weight:400}
+.app-shell .brand-symbol{background:none;color:var(--accent);border-radius:0;width:27px;height:30px}
+.app-shell .brand small{display:block;font-family:Arial,sans-serif;font-style:normal;font-size:7px;letter-spacing:2px;font-weight:400;color:#73716a;margin-top:7px}
+.app-shell .nav-caption{display:block;font-size:8px;letter-spacing:2px;padding:12px 10px 18px;color:#827f76}
+.app-shell nav{gap:5px}
+.app-shell nav a{height:46px;padding:0 12px;font-size:11px;letter-spacing:.3px;border-radius:0;color:#66645e;font-weight:400;gap:11px}
+.app-shell nav a:hover{background:var(--wash);color:var(--ink)}
+.app-shell nav a.active{background:var(--wash);color:var(--accent);font-weight:600;box-shadow:inset 2px 0 var(--accent)}
+.app-shell nav a.active:before,.app-shell .nav-active-dot{display:none}
+.app-shell .sidebar-note{background:none;border:0;border-top:1px solid var(--line);border-radius:0;margin:auto 5px 22px;padding:20px 0 0}
+.app-shell .research-icon{display:none}
+.app-shell .sidebar-note strong{font-size:9px;color:#4c4a43}
+.app-shell .sidebar-note p{font-size:10px;color:#77746b;line-height:1.8}
+.app-shell .sidebar-bottom{border-color:var(--line);margin:0 -18px;background:var(--wash);font-size:10px}
+.app-shell .avatar{background:#e4e8df;color:var(--accent);border-radius:0}
+.app-shell .sidebar-bottom small{color:#77746b}
+.app-shell .topbar{background:var(--paper);border-color:var(--line);height:74px;padding:0 36px}
+.app-shell .breadcrumb{color:#8d897e;font-size:10px;letter-spacing:.4px}
+.app-shell .breadcrumb b{color:var(--ink)}
+.app-shell .research-pill,.app-shell .connection{color:#716e65;font-size:9px;letter-spacing:.5px}
+.app-shell main{padding:30px 36px 0;max-width:1640px;min-height:calc(100vh - 74px)}
+.app-shell.proposal-shell main{padding:30px 36px 0;min-height:100vh}
+.app-shell .page-heading{padding-bottom:25px;border-bottom:1px solid var(--line);margin-bottom:24px}
+.app-shell .heading-eyebrow{font-size:8px;letter-spacing:2.5px;color:#827f76;margin-bottom:12px}
+.app-shell h1,.app-shell .proposal-title-row h1{font-family:var(--font-serif);font-style:italic;font-size:44px;letter-spacing:-1.8px;font-weight:400;color:var(--ink);line-height:1.15}
+.app-shell .page-heading p,.app-shell .proposal-title-row>div:first-of-type>p{font-size:12px;color:#77746b;line-height:1.8;margin-top:10px}
+.app-shell .proposal-header{padding-bottom:23px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.app-shell .proposal-title-row{align-items:center}
+.app-shell .proposal-asof>span,.app-shell .proposal-data-state span{font-size:9px;letter-spacing:.4px;color:#858075}
+.app-shell .proposal-data-state{border-color:var(--line)}
+.app-shell .proposal-asof strong{font-size:12px;font-weight:500}
+.app-shell .proposal-date-row{margin-top:22px}
+.app-shell .proposal-date-row label>svg{color:var(--accent)}
+.app-shell :is(.button,.model-select select,.research-date-form input,.research-date-form select,.filters input,.filters select,.proposal-date-row input){border-radius:0;box-shadow:none;border-color:var(--line);background:transparent;color:var(--ink)}
+.app-shell :is(.button,.proposal-view-tabs>button){font-size:9px;text-transform:uppercase;letter-spacing:1.3px;font-weight:600;height:36px}
+.app-shell .button-primary{background:var(--ink);border:1px solid var(--ink);color:var(--paper)}
+.app-shell .button-primary:hover{background:var(--accent);border-color:var(--accent)}
+.app-shell .button-outline{border:1px solid var(--ink)}
+.app-shell .button-outline:hover{background:var(--ink);color:var(--paper)}
+.app-shell .button-ghost,.app-shell .text-button{color:var(--accent)}
+.app-shell .text-button{font-size:10px}
+.app-shell .proposal-view-tabs{border:1px solid var(--line);border-radius:0;background:none;padding:0;gap:0}
+.app-shell .proposal-view-tabs>button{border-radius:0;padding:0 18px;background:none;box-shadow:none;color:#77746b}
+.app-shell .proposal-view-tabs>button[aria-selected=true]{background:var(--ink);color:var(--paper);box-shadow:none}
+.app-shell :is(.panel,.proposal-card,.research-date-picker,.indicator-choice){background:var(--paper);border:1px solid var(--line);border-radius:0;box-shadow:none}
+.app-shell .panel{padding:24px}
+.app-shell :is(.panel-head h2,.section-label h2,.research-date-intro h2,.domestic-heading h2){font-family:var(--font-serif);font-style:italic;font-size:22px;font-weight:400;color:var(--ink);letter-spacing:-.3px}
+.app-shell .panel-head p,.app-shell .research-date-intro p{color:#827d71;font-size:11px;line-height:1.7}
+.app-shell :is(.data-banner,.soft-note,.inline-note,.outlook-note,.selected-banner,.live-model-boundary){background:var(--wash);border:1px solid var(--line);border-radius:0;color:#716d62;box-shadow:none}
+.app-shell .data-banner strong,.app-shell .research-date-applied>strong{color:#4e4b43}
+.app-shell :is(.data-banner-left>svg,.research-date-intro,.soft-note>svg,.live-model-boundary>svg){color:var(--accent)}
+.app-shell :is(.data-updated,.banner-note,.research-date-applied,.research-date-form>label,.model-select>span,.filters label){color:#817b6e}
+.app-shell :is(.tiny-tag,.date-origin,.candidate,.reference-tag,.live-auto-tag,.live-proxy-tag){background:var(--wash);border:1px solid var(--line);border-radius:0;color:#6a6b58;font-size:8px;letter-spacing:.5px}
+.app-shell .proposal-summary{gap:0;border:1px solid var(--line)}
+.app-shell .proposal-summary>.proposal-card{border:0;border-right:1px solid var(--line);background:transparent}
+.app-shell .proposal-summary>.proposal-card:last-child{border-right:0}
+.app-shell .proposal-stat{padding:24px 20px;min-height:185px}
+.app-shell .proposal-card h2,.app-shell .eyebrow{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1.3px;color:#777267;line-height:1.8}
+.app-shell .proposal-stat .proposal-regime{font-family:var(--font-serif);font-style:italic;font-weight:400;font-size:38px;letter-spacing:-1.4px;margin-top:8px}
+.app-shell .proposal-close>strong{font-size:36px;letter-spacing:-1.5px;font-weight:400;margin-top:8px}
+.app-shell .proposal-stat>p{font-size:10px;color:#858075}
+.app-shell .proposal-stat-icon{height:24px;width:28px;margin:12px 0}
+.app-shell .proposal-dashboard{gap:23px}
+/* Tinggi mengikuti isi agar kedua model dan keterangan evaluasi selalu utuh. */
+.app-shell .proposal-main-grid{gap:20px;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);grid-template-rows:minmax(330px,auto) auto auto;grid-template-areas:'trend comparison' 'indicators indicators' 'guide guide'}
+.app-shell .proposal-live-dashboard .proposal-main-grid{grid-template-rows:minmax(330px,auto) auto auto}
+.app-shell .proposal-trend{padding:20px 16px 0}
+.app-shell .proposal-comparison{padding:20px}
+.app-shell .proposal-guide{padding:20px;background:var(--wash)}
+.app-shell .proposal-guide>div{flex-direction:row;gap:24px}
+.app-shell .proposal-guide section{flex:1;border:0;padding:20px 0}
+.app-shell .proposal-guide section>p{font-size:11px;color:#777267;margin-left:33px}
+.app-shell .proposal-guide h3{font-family:var(--font-serif);font-style:italic;font-size:19px;letter-spacing:0}
+.app-shell .proposal-guide>small{font-size:10px}
+.app-shell .proposal-indicators{gap:0;border:1px solid var(--line)}
+.app-shell .proposal-indicator{padding:20px;border:0;border-right:1px solid var(--line);min-height:160px;background:var(--wash)}
+.app-shell .proposal-indicator:last-child{border-right:0}
+.app-shell .proposal-indicator h2{font-size:8px;letter-spacing:1px;min-height:32px}
+.app-shell .proposal-indicator-main strong{font-size:25px;font-weight:400;letter-spacing:-.8px}
+.app-shell .proposal-indicator-main span,.app-shell .proposal-indicator-date{font-size:9px;color:#858075}
+.app-shell .proposal-indicator-main p{font-size:9px}
+.app-shell :is(.ranges,.proposal-ranges){background:none;border:0;border-radius:0;padding:0;gap:4px}
+.app-shell :is(.ranges button,.proposal-ranges button){background:none;color:#8a8477;border-radius:0;border:1px solid transparent;font-size:9px;min-width:27px;height:26px}
+.app-shell .ranges button.active,.app-shell .proposal-ranges button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:none}
+.app-shell :is(th,.proposal-comparison th){background:var(--wash);color:#7d776b;font-size:9px;font-weight:500;letter-spacing:.5px;border-color:var(--line);padding:13px 9px}
+.app-shell :is(td,.proposal-comparison td){border-color:var(--line);color:#48463e;padding:16px 9px;font-size:11px}
+.app-shell .proposal-comparison td>button{font-size:11px}
+.app-shell .proposal-comparison tr.selected td{background:#ebeee6;color:var(--accent)}
+.app-shell .proposal-reference{background:var(--accent);border-radius:0}
+.app-shell .proposal-evaluation{border-color:var(--line)}
+.app-shell .proposal-evaluation p,.app-shell .proposal-model-hint{font-size:10px;color:#858075;line-height:1.8}
+.app-shell .proposal-model-hint{padding-top:10px}
+.app-shell .summary-value,.app-shell .regime-flow strong{font-family:var(--font-serif);font-style:italic;font-weight:400}
+.app-shell .card-icon,.app-shell .flow-arrow,.app-shell .model-symbol{border-radius:0;background:var(--wash);border-color:var(--line);color:var(--accent)}
+.app-shell :is(.feature-grid>div,.details-grid,.threshold-box,.source-row,.metric-strip,.pagination,.importance-grid,.live-chart-footer,.domestic-source){border-color:var(--line)}
+.app-shell :is(.feature-grid strong,.details-grid strong,.metric-strip strong,.comparison-score>strong,.warning-counts strong,.mini-content strong){color:#45483d;font-weight:400}
+.app-shell :is(.feature-grid span,.details-grid span,.threshold-box>div>span,.metric-strip>div>span,.comparison-score>span,.comparison-score small,.warning-counts span,.source-row p,.mini-content p,.muted){color:#817b6e}
+.app-shell .progress-track{background:#e6e3dc;border-radius:0}
+.app-shell .progress-track span{border-radius:0}
+.app-shell .rule-selected{background:#edf0e6;outline-color:#c4cfb8}
+.app-shell .matrix td.diagonal{background:#edf0e6;color:var(--accent)}
+.app-shell .badge{border-radius:0;font-size:10px}
+.app-shell .badge.bullish,.app-shell .badge.stable{background:#e9eee3;color:var(--accent)}
+.app-shell .indicator-choice.selected{border-color:var(--accent);box-shadow:inset 3px 0 var(--accent)}
+.app-shell .filters{background:var(--wash);border-color:var(--line)}
+.app-shell .domestic-value{font-weight:400;font-size:36px;color:var(--accent)}
+.app-shell .domestic-card-title h3{font-size:10px;letter-spacing:1.5px}
+.app-shell .domestic-card-title>span{background:var(--wash);color:var(--accent);border-radius:0}
+.app-shell .domestic-card p,.app-shell .domestic-usage{color:#817b6e}
+.app-shell footer{background:transparent;border-color:var(--line);padding:20px 0;margin-top:30px;color:#817b6e;font-size:10px}
+.app-shell footer>svg,.app-shell footer strong{color:var(--accent)}
+.app-shell .toast{border:1px solid var(--ink);border-radius:0;background:var(--paper);box-shadow:0 8px 24px #1a1a1a0d;color:#645e51}
+.app-shell .compoundly-menu{background:var(--paper);border:1px solid var(--line);border-radius:0;box-shadow:none}
+.app-shell .recharts-cartesian-grid line{stroke:var(--line)}
+.app-shell .proposal-price-chart .recharts-line-curve{stroke:var(--ink)}
+.app-shell .proposal-provenance{margin-bottom:2px;color:#817b6e}
+@media(max-width:1250px){.app-shell .sidebar{width:185px;padding-left:12px;padding-right:12px}.app-shell .workspace{margin-left:185px}.app-shell main,.app-shell.proposal-shell main{padding:26px 24px 0}.app-shell .proposal-stat{padding:20px 14px}.app-shell .proposal-stat .proposal-regime{font-size:32px}.app-shell .proposal-close>strong{font-size:30px}.app-shell .proposal-main-grid{grid-template-columns:minmax(0,1.2fr) minmax(285px,1fr)}.app-shell .proposal-indicator{padding:16px 12px}.app-shell .proposal-indicator-main strong{font-size:22px}.app-shell .proposal-spark{width:55px}}
+@media(max-width:1000px){.app-shell h1,.app-shell .proposal-title-row h1{font-size:38px}.app-shell .proposal-main-grid,.app-shell .proposal-live-dashboard .proposal-main-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:310px auto auto auto;grid-template-areas:'trend' 'comparison' 'indicators' 'guide'}.app-shell .proposal-comparison{min-height:270px}.app-shell .proposal-indicators{grid-template-columns:repeat(2,minmax(0,1fr))}.app-shell .proposal-indicator:nth-child(2){border-right:0}.app-shell .proposal-indicator:nth-child(-n+2){border-bottom:1px solid var(--line)}.app-shell .proposal-guide>div{gap:14px}}
+@media(max-width:720px){.app-shell .sidebar{width:210px;padding:26px 18px 0}.app-shell .workspace{margin-left:0}.app-shell main,.app-shell.proposal-shell main{padding:24px 18px 0}.app-shell .topbar{padding:0 18px;height:60px}.app-shell h1,.app-shell .proposal-title-row h1{font-size:36px}.app-shell .proposal-header{padding-bottom:18px}.app-shell .proposal-title-row{gap:13px}.app-shell .proposal-asof{flex:1}.app-shell .proposal-view-tabs>button{padding:0 13px;font-size:9px;letter-spacing:.6px}.app-shell .proposal-summary{grid-template-columns:1fr 1fr;gap:0}.app-shell .proposal-summary>.proposal-card:nth-child(2){border-right:0}.app-shell .proposal-summary>.proposal-card:nth-child(-n+2){border-bottom:1px solid var(--line)}.app-shell .proposal-stat{padding:18px 14px;min-height:170px}.app-shell .proposal-stat .proposal-regime{font-size:30px}.app-shell .proposal-close>strong{font-size:28px}.app-shell .proposal-card h2{font-size:8px;letter-spacing:.8px}.app-shell .proposal-stat>p{font-size:9px}.app-shell .proposal-guide>div{flex-direction:column;gap:0}.app-shell .proposal-guide section{padding:14px 0;border-bottom:1px solid var(--line)}.app-shell .proposal-guide h3{font-size:20px}.app-shell .panel{padding:20px 16px}.app-shell .panel-head h2,.app-shell .research-date-intro h2{font-size:20px}.app-shell .research-date-picker{padding:18px 15px}.app-shell .proposal-comparison{padding:18px 12px}.app-shell .proposal-comparison th{font-size:8px;letter-spacing:0;padding:12px 4px}.app-shell .proposal-comparison td{font-size:10px;padding:16px 4px}.app-shell .proposal-evaluation p,.app-shell .proposal-model-hint{font-size:9px}.app-shell .proposal-main-grid,.app-shell .proposal-live-dashboard .proposal-main-grid{gap:16px;grid-template-rows:290px auto auto auto}.app-shell .proposal-indicator-main strong{font-size:23px}.app-shell .proposal-indicator h2{font-size:8px}.app-shell .proposal-spark{width:50px}.app-shell .page-actions{flex-wrap:wrap}.app-shell .proposal-title-row>div:first-of-type>p{font-size:11px}}
+
+/* Shared desktop shell: stable spacing and restrained metadata across routes. */
+html{scrollbar-gutter:stable}
+.app-shell main,.app-shell.proposal-shell main{max-width:1440px;padding:28px 32px 0;min-height:calc(100vh - 64px)}
+.app-shell .topbar{height:64px;padding:0 32px}
+.app-shell .page-heading,.app-shell .proposal-header{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.app-shell h1,.app-shell .proposal-title-row h1{font-size:36px;line-height:1.2}
+.app-shell .page-content,.app-shell .proposal-dashboard{gap:20px;animation:none}
+.app-shell .sidebar-note{margin-top:auto}
+.app-shell .research-pill,.app-shell .topbar-separator,.app-shell .heading-eyebrow{display:none}
+.app-shell :is(.tiny-tag,.date-origin,.candidate,.reference-tag,.live-auto-tag,.live-proxy-tag){background:transparent;border:0;padding:0;letter-spacing:0;font-size:10px}
+.app-shell :is(.soft-note,.inline-note,.outlook-note,.selected-banner,.live-model-boundary){background:transparent;border:0;border-left:2px solid var(--line);padding:10px 14px;box-shadow:none}
+.app-shell .data-banner{background:transparent;border:0;border-bottom:1px solid var(--line);padding:0 0 16px;margin-bottom:20px}
+.app-shell .panel,.app-shell .proposal-comparison,.app-shell .proposal-guide{padding:22px}
+.app-shell .proposal-stat{min-height:160px;padding:20px}
+.app-shell .proposal-evaluation-label{font-size:11px;color:#716d62;margin-top:8px}
+@media(min-width:1001px){.app-shell .compoundly-frame{width:111.111112%;height:111.111112%;transform:scale(.9);transform-origin:top left}}
+@media(max-width:720px){.app-shell main,.app-shell.proposal-shell main{padding:20px 16px 0}.app-shell .topbar{padding:0 16px}.app-shell h1,.app-shell .proposal-title-row h1{font-size:29px}.app-shell .panel{padding:18px}.app-shell .workspace{margin-left:0}}
+.app-shell .brand{font-size:26px;gap:8px;padding:0 8px 30px;flex-shrink:0}
+.app-shell .brand small{white-space:nowrap;font-size:7px;letter-spacing:1.5px}
+.app-shell .brand>div{min-width:0;white-space:nowrap}
+.app-shell .badge{background:transparent!important;border:0;padding:3px 0}
+.app-shell .sidebar .nav-caption{padding:12px 10px 18px}
+
+/* Keep navigation geometry independent of the current page. */
+.app-shell .sidebar nav{flex-shrink:0}
+.app-shell .sidebar-note strong{line-height:1.7}
+.app-shell .sidebar-note p{margin:4px 0 0;line-height:1.8}
+
+/* Research provenance uses the active model metadata and selected date. */
+.research-context { border: 1px solid var(--line, #e0ddd7); padding: 20px; margin-bottom: 22px; background: #faf9f6; }
+.research-context h2 { font-size: 15px; margin: 0 0 16px; }
+.research-periods { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 28px; margin: 0; }
+.research-periods dt { font-size: 12px; font-weight: 700; color: #55584f; }
+.research-periods dd { margin: 5px 0; font-size: 13px; line-height: 1.5; }
+.research-periods small { color: #76736a; font-size: 12px; line-height: 1.6; display: block; }
+.research-selected { border-top: 1px solid #e0ddd7; margin-top: 18px; padding-top: 16px; font-size: 13px; line-height: 1.7; }
+.research-selected > span { display: inline-block; margin-left: 12px; color: #365d2e; font-weight: 700; }
+.research-selected p { margin: 7px 0 0; }
+@media(max-width:700px) { .research-periods { grid-template-columns: 1fr; } .research-selected > span { display:block; margin-left:0; } }

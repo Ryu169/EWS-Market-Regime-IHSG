@@ -1,0 +1,6 @@
+{
+  "name": "Compoundly",
+  "description": "Kalkulator bunga majemuk elegan untuk simulasi investasi dan perencanaan keuangan dengan visualisasi mendalam.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["Real-time Calculations", "Investment Projections", "Scenario Comparison"]
+}

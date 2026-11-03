@@ -1,0 +1,28 @@
+{
+  "baseline_config": "config_training.json",
+  "random_trials_per_model": 16,
+  "accuracy_target": 0.7,
+  "candidate_start_date": "2016-08-19",
+  "candidate_consolidation": "require_improvement_for_both_algorithms",
+  "search_spaces": {
+    "xgboost": {
+      "n_estimators": [100, 200, 400, 600],
+      "learning_rate": [0.02, 0.05, 0.1],
+      "max_depth": [2, 3, 4, 5],
+      "min_child_weight": [1, 5, 15],
+      "subsample": [0.75, 1.0],
+      "colsample_bytree": [0.75, 1.0],
+      "reg_lambda": [1.0, 5.0, 10.0]
+    },
+    "lightgbm": {
+      "n_estimators": [100, 200, 400, 600],
+      "learning_rate": [0.02, 0.05, 0.1],
+      "max_depth": [2, 3, 4, 5],
+      "num_leaves": [3, 7, 15, 31],
+      "min_child_samples": [20, 50, 100],
+      "subsample": [0.75, 1.0],
+      "colsample_bytree": [0.75, 1.0],
+      "reg_lambda": [1.0, 5.0, 10.0]
+    }
+  }
+}

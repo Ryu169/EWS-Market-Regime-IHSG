@@ -1,0 +1,31 @@
+{
+  "ihsg": {
+    "path": "../Dataset/IHSG OHLCV Jan 2008-Jul 2026.xlsx",
+    "sheet": "Composite Stock Price Index & S",
+    "header_row": 2,
+    "date_header": "Date",
+    "columns": {
+      "Open": "ihsg_open",
+      "High": "ihsg_high",
+      "Low": "ihsg_low",
+      "Close": "ihsg_close",
+      "Volume (b)": "ihsg_volume_source"
+    },
+    "unit_status": "Volume berlabel b; satuan dan faktor konversi historis belum terverifikasi. Nilai dipertahankan tanpa konversi."
+  },
+  "foreign": {
+    "path": "../Dataset/Net Foreign Jan 2008-Jul 2026.xlsx",
+    "sheet": "Harian",
+    "header_row": 3,
+    "date_header": "Tanggal",
+    "columns": {
+      "Net Foreign (Rp b)": "foreign_net_flow_billion_idr"
+    },
+    "unit_status": "Miliar rupiah mengikuti catatan sumber. Sudah berupa net flow; tidak dibagi satu miliar lagi. Komponen beli/jual dan cakupan pasar belum terverifikasi."
+  },
+  "numeric_text_locale": "id_ID",
+  "date_text_formats": ["%Y-%m-%d", "%Y-%m-%d %H:%M:%S", "%d-%m-%Y", "%d/%m/%Y"],
+  "output_dir": "output",
+  "report_dir": "reports",
+  "stage": "01_ihsg_foreign"
+}

@@ -1,0 +1,196 @@
+{
+  "base_config": "config_foreign.json",
+  "output_dir": "output/03_all_datasets",
+  "report_dir": "reports/03_all_datasets",
+  "cutoff_wib": "18:00:00",
+  "cutoff_status": "research_configuration_not_yet_frozen_for_experiments",
+  "usdidr": {
+    "path": "../Dataset/Kurs USD-IDR Jan 2008-Jul 2026.xlsx",
+    "sheet": "Informasi Kurs Jisdor",
+    "header_row": 3,
+    "date_header": "Tanggal",
+    "columns": {
+      "Kurs": "value"
+    },
+    "unit_status": "Rupiah per USD. Kompilasi campuran sumber menurut pengguna; bukan seri JISDOR homogen yang telah diverifikasi.",
+    "availability_policy": "legacy_mixed_source_not_for_model",
+    "max_observation_age_days": 7,
+    "provenance_status": "mixed_sources_unverified",
+    "role": "legacy_provenance_archive_only",
+    "model_eligible": false,
+    "model_source_status": "superseded_by_fx_model_protocol"
+  },
+  "brent": {
+    "path": "../Dataset/OIL BRENT Jan 2008-Jul 2026.csv",
+    "value_header": "DCOILBRENTEU",
+    "availability_policy": "provisional_calendar_lag",
+    "lag_calendar_days": 8,
+    "max_observation_age_days": 21,
+    "policy_status": "conservative_research_assumption_requires_historical_release_verification",
+    "policy_reason": "FRED membedakan tanggal observasi, waktu update, dan jadwal release. Buffer 8 hari kalender adalah asumsi penelitian, bukan tanggal publikasi historis yang dibuktikan untuk setiap baris.",
+    "reference_url": "https://fred.stlouisfed.org/series/DCOILBRENTEU"
+  },
+  "us10y": {
+    "path": "../Dataset/US Treasury Jan 2008-Jul 2026.csv",
+    "value_header": "DGS10",
+    "availability_policy": "provisional_us_business_day_lag",
+    "lag_us_business_days": 2,
+    "release_time_et": "16:15:00",
+    "max_observation_age_days": 14,
+    "policy_status": "conservative_research_assumption_requires_historical_release_verification",
+    "policy_reason": "H.15 terbit pada hari kerja pukul 16:15 waktu AS. Dua hari kerja federal AS adalah buffer penelitian; timezone ET dikonversi ke WIB dan bukan shift satu baris IHSG.",
+    "reference_url": "https://www.federalreserve.gov/releases/h15/"
+  },
+  "bi_rate": {
+    "path": "../Dataset/BI Rate Jan 2008-Jul 2026.xlsx",
+    "sheet": "BI-7Day-RR",
+    "header_row": 5,
+    "modern_instrument_start": "2016-08-19",
+    "availability_policy": "next_calendar_day_after_source_date",
+    "max_observation_age_days": 62,
+    "policy_status": "date_from_workbook_time_unknown_use_next_day",
+    "reference_url": "https://www.bi.go.id/id/statistik/indikator/bi-rate.aspx"
+  },
+  "inflation": {
+    "path": "../Dataset/Tingkat Inflasi Harga Konsumen Nasional Jan 2008-Jul 2026.xls",
+    "sheet": "indo",
+    "release_calendar": "inputs/inflation_release_dates.csv",
+    "release_evidence": "inputs/inflation_bps_release_evidence.json",
+    "availability_policy": "verified_release_date_then_next_calendar_day",
+    "max_observation_age_days": 62,
+    "suspend_at_first_day_two_months_after_reference": true,
+    "value_corrections": [
+      {
+        "reference_month": "2025-11",
+        "expected_original": 2.27,
+        "corrected_yoy": 2.72,
+        "reason": "2,27 adalah year-to-date; YoY nasional pada rilis BPS adalah 2,72 persen.",
+        "evidence_url": "https://www.bps.go.id/en/pressrelease/2025/12/01/2486/inflasi-year-on-year--y-on-y--pada-november-2025-sebesar-2-72-persen.html"
+      }
+    ],
+    "supplemental_monthly_observations": [
+      {
+        "reference_month": "2007-11",
+        "value": 6.71,
+        "release_date": "2007-12-03",
+        "evidence_url": "https://www.bps.go.id/id/pressrelease/2007/12/03/646/pada-bulan-november-2007-terjadi-inflasi-0-18-persen.html",
+        "reason": "Riwayat yang telah diumumkan sebelum 2 Januari 2008; mengikuti cutoff konservatif rilis ditambah satu hari."
+      },
+      {
+        "reference_month": "2007-12",
+        "value": 6.59,
+        "release_date": "2008-01-02",
+        "evidence_url": "https://www.bps.go.id/id/pressrelease/2008/01/02/650/pada-bulan-desember-2007-terjadi-inflasi-1-10-persen.html",
+        "reason": "Riwayat awal untuk penyelarasan Januari 2008; bukan mengisi inflasi Januari sebelum rilisnya."
+      }
+    ],
+    "verified_release_examples": [
+      {
+        "ReferenceMonth": "2026-02",
+        "ReleaseDate": "2026-03-02",
+        "ExpectedYoY": 4.76,
+        "EvidenceURL": "https://www.bps.go.id/id/pressrelease/2026/03/02/2551/perkembangan-indeks-harga-konsumen.html"
+      }
+    ]
+  },
+  "gap_completion": {
+    "sources_manifest": "inputs/gap_sources_manifest.json",
+    "max_fill_age_calendar_days": {
+      "Brent": 5,
+      "US10Y": 3,
+      "USD_IDR": 14
+    },
+    "bi_initial_observation_date": "2007-12-06",
+    "verified_bi_nonpublication_dates": [
+      {
+        "date": "2017-12-01",
+        "reason": "national_holiday_maulid_nabi",
+        "evidence_url": "https://menpan.go.id/site/berita-terkini/libur-nasional-dan-cuti-bersama-2017-tambah-3-hari",
+        "evidence_file": "inputs/gap_sources/national_holidays_2017.html"
+      },
+      {
+        "date": "2018-06-20",
+        "reason": "bank_indonesia_holiday_eid",
+        "evidence_url": "https://www.bi.go.id/id/publikasi/peraturan/Documents/Lampiran_PADG_203818.pdf",
+        "evidence_file": "inputs/gap_sources/bi_holidays_2018_evidence.json"
+      },
+      {
+        "date": "2018-06-27",
+        "reason": "bank_indonesia_holiday_regional_election",
+        "evidence_url": "https://www.bi.go.id/id/publikasi/peraturan/Documents/Lampiran_PADG_203818.pdf",
+        "evidence_file": "inputs/gap_sources/bi_holidays_2018_evidence.json"
+      }
+    ],
+    "foreign_calendar_review": [
+      {
+        "date": "2017-12-01",
+        "status": "excluded_nontrading_user_reviewed",
+        "reason": "Libur Maulid Nabi; OHLC identik dengan 30 November, Volume nol, Foreign kosong. Pengecualian hasil turunan sesuai keputusan pengguna.",
+        "evidence_url": "https://www.eddyelly.com/2016/12/kalender-libur-bursa-efek-indonesia.html"
+      }
+    ],
+    "fx_supplement_definition_status": "BIS daily spot average supplements gaps in Yahoo close history; units and currency match but fixing time/aggregation are not homogeneous. Requires modelling source protocol review."
+  },
+  "excluded_nontrading_dates": [
+    {
+      "date": "2017-12-01",
+      "reason": "Libur Maulid Nabi; OHLC identik dengan 30 November, Volume nol, Foreign kosong. Pengecualian hasil turunan sesuai keputusan pengguna.",
+      "evidence_url": "https://www.eddyelly.com/2016/12/kalender-libur-bursa-efek-indonesia.html",
+      "evidence_type": "secondary_calendar_attributing_IDX_and_source_row_diagnostics"
+    }
+  ],
+  "fx_model_protocol": {
+    "status": "asof_integrated_candidate_IHSG_source_review_pending",
+    "model_series": "ECB daily reference-rate cross, computed as IDR_per_USD = IDR_per_EUR / USD_per_EUR",
+    "unit": "IDR per USD",
+    "date_range_candidate": {
+      "start": "2008-01-01",
+      "end": "2026-07-31"
+    },
+    "input_series": [
+      {
+        "provider": "European Central Bank",
+        "series_key": "EXR.D.IDR.EUR.SP00.A",
+        "file": "reports/05_fx_source_audit/source_data/ecb_idr_eur_2008_2026.csv",
+        "unit": "IDR per EUR"
+      },
+      {
+        "provider": "European Central Bank",
+        "series_key": "EXR.D.USD.EUR.SP00.A",
+        "file": "reports/05_fx_source_audit/source_data/ecb_usd_eur_2008_2026.csv",
+        "unit": "USD per EUR"
+      }
+    ],
+    "jisdor": {
+      "provider": "Bank Indonesia",
+      "available_from": "2013-05-20",
+      "role": "comparison_benchmark_only",
+      "may_be_spliced_into_model_series": false
+    },
+    "legacy_workbook": {
+      "path": "../Dataset/Kurs USD-IDR Jan 2008-Jul 2026.xlsx",
+      "role": "provenance_archive_only",
+      "model_eligible": false,
+      "reason": "pre-2013 values match Yahoo-labeled snapshot; later values match JISDOR; mixed protocols"
+    },
+    "availability_policy": "next_calendar_day_at_cutoff_for_ecb_reference_rate",
+    "cutoff_wib": "18:00:00",
+    "cutoff_status": "provisional_recalculate_availability_map_if_cutoff_changes",
+    "max_observation_age_days": 7,
+    "gap_policy": "use_latest_published_ecb_cross_observation_as_of_cutoff_only; do_not_backfill_or_splice_other_sources",
+    "rebuild_required_before_feature_engineering_or_tuning": true,
+    "test_set_must_remain_untouched_until_experiment_protocol_is_frozen": true,
+    "audit_decision": "reports/05_fx_source_audit/KEPUTUSAN_SUMBER_USD_IDR.md",
+    "derived_source_file": "output/05_fx_source/ecb_usdidr_cross_2008_2026.csv",
+    "derived_source_metadata": "output/05_fx_source/ecb_usdidr_cross_2008_2026_metadata.json",
+    "builder_script": "build_ecb_fx_cross.py",
+    "shared_upstream_check": {
+      "provider": "Bank for International Settlements",
+      "series_key": "D.ID.IDR.A",
+      "role": "reconstruction_check_not_independent_market_observation",
+      "upstream": "ECB"
+    },
+    "integrated_candidate_file": "output/06_dataset_candidate/ihsg_preprocessing_candidate.csv",
+    "integration_script": "finalize_dataset.py"
+  }
+}

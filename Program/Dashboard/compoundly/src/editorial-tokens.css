@@ -1,0 +1,9 @@
+/* Shared visual tokens from Compoundly / Wealth.Logic. */
+:root {
+  --font-serif: Georgia, serif;
+  --color-editorial-bg: #F9F8F6;
+  --color-editorial-text: #1A1A1A;
+  --color-editorial-border: #E0DDD7;
+  --color-editorial-accent: #2D5A27;
+  --color-editorial-secondary: #F3F1ED;
+}
